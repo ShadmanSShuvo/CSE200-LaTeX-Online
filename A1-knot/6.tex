@@ -1,0 +1,22 @@
+\section{A Short Python Implementation}
+
+Listing 1 implements the same calculation. It also checks
+that every crossing sign is valid.
+
+\begin{lstlisting}[language=Python, caption={Computing the writhe from signed crossings.}, label={lst:one}]
+def writhe(crossing_signs):
+    """Return the writhe of an oriented knot diagram."""
+    if any(
+        sign not in (-1, 1) for sign in crossing_signs
+    }:
+        raise ValueError("Each sign must be +1 or -1")
+    return sum(crossing_signs)
+
+
+if __name__ == "__main__":
+    signs = [1, 1, -1, 1]
+    print(writhe(signs)) # Output: 2
+\end{lstlisting}
+
+The mathematical definition in Equation~\ref{eq:three} and the
+code in Listing 1 perform the same summation.

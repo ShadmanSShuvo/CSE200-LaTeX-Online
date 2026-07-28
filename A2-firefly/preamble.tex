@@ -1,0 +1,209 @@
+
+% ==============================================================================
+% CSE200 LAB EVALUATION / ONLINE SPEED TEMPLATE
+% Designed for 40-45 minute timed write-ups
+% ==============================================================================
+
+% ---- Page Layout & Geometry ----
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{verbatim}
+\usepackage{refcount}
+% ---- Multi-column Text ----
+\usepackage{multicol}
+\usepackage[most]{tcolorbox}
+% \begin{tcolorbox}[title=Advantages,colback=blue!5,colframe=blue]
+% \begin{itemize}
+%     \item Fast
+%     \item Portable
+%     \item Open Source
+% \end{itemize}
+% \end{tcolorbox}
+\usepackage{tasks} % for multi column enumerate (MCQ style)
+% \begin{tasks}[label=\Roman*.](2) % will spread two columns
+%     \task Apple
+%     \task Orange
+%     \task Mango
+%     \task Banana
+% \end{tasks}
+\usepackage{paralist} % for compactitem, compactenum, inparaenum, inparaitem
+\usepackage[ampersand]{easylist} % for easylist environment
+% \begin{easylist}
+% & Animals     *Animals
+% && Mammals        *Mammals
+% && Birds          *Birds
+% & Plants      *Plants
+% && Trees          *Trees
+% && Flowers        *Flowers
+% \end{easylist}
+\usepackage{outline}
+% \begin{outline}
+% \1 Programming        %I. Programming
+%     \2 C++                %A. C++
+%     \2 Python             %B. Python
+%         \3 NumPy              %1. NumPy
+%         \3 PyTorch            %2. PyTorch
+%     \2 Java               %C. Java
+% \end{outline}
+\usepackage{multicol}
+% \begin{multicols}{2}
+% \begin{itemize}
+%     \item Apple
+%     \item Banana
+%     \item Mango
+%     \item Orange
+%     \item Lemon
+%     \item Peach
+% \end{itemize}
+% \end{multicols}
+
+
+% ---- Colors ----
+\usepackage[table,dvipsnames]{xcolor}
+\definecolor{customblue}{RGB}{0, 76, 153}
+\definecolor{softgreen}{RGB}{226, 245, 236}
+\definecolor{softred}{RGB}{255, 232, 232}
+\definecolor{softyellow}{RGB}{255, 247, 214}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+% ---- Graphics & Subfigures ----
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+
+% ---- Tables ----
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{multirow}
+
+% ---- Lists ----
+% \begin{description}[style=nextline]
+\usepackage{enumitem}
+% \begin{enumerate}[label=\Roman*., leftmargin=2cm, itemsep=3pt]
+%     \item Introduction
+%     \item Methods
+%     \item Results
+% \end{enumerate}
+
+% ---- Math & Theorems ----
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{amsthm}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\newtheorem{proposition}{Proposition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+
+% ---- Algorithms & Pseudocode ----
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+% ---- Code Listings ----
+\usepackage{listings}
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{customblue}\bfseries,
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2,
+    frame=single,
+    columns=fullflexible,
+    linewidth=\textwidth
+}
+\lstset{style=mystyle}
+
+% ---- Author Affiliations ----
+\usepackage{authblk}
+
+% ==============================================================================
+% BIBLIOGRAPHY CONFIGURATION (CHOOSE ONE APPROACH)
+% ==============================================================================
+% --- Approach A: Modern BibLaTeX + Biber (DEFAULT) ---
+% Note: Use \textcite{key} for Author (Year) and \parencite{key} for (Author, Year)
+\usepackage[backend=biber, style=numeric]{biblatex}
+\addbibresource{firefly_refs.bib} % Must include .bib extension!
+
+% --- Approach B: Traditional Natbib / BibTeX ---
+% To use Natbib: Uncomment natbib line below AND comment out BibLaTeX lines above!
+% Also switch bottom bibliography command from \printbibliography to \bibliography{solar_system}
+%\usepackage[numbers, sort&compress]{natbib}
+%\usepackage[authoryear, round]{natbib} % For Author-Year style
+
+
+% ---- Hyperlinks (Load after bib/font packages) ----
+\usepackage[colorlinks=true, linkcolor=customblue, citecolor=teal, urlcolor=teal]{hyperref}
+
+% ==============================================================================
+% SPEED MACROS & SHORTCUTS FOR TIMED EVALUATION
+% ==============================================================================
+
+% --- Equation Shortcuts ---
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\bea}{\begin{align}}
+\newcommand{\eea}{\end{align}}
+% --- Calculus & Derivatives ---
+\newcommand{\dt}[1]{\frac{\mathrm{d}#1}{\mathrm{d}t}}
+\newcommand{\dx}[1]{\frac{\mathrm{d}#1}{\mathrm{d}x}}
+\newcommand{\pdt}[1]{\frac{\partial #1}{\partial t}}
+\newcommand{\pdx}[1]{\frac{\partial #1}{\partial x}}
+
+% --- Number Sets ---
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+
+% --- Linear Algebra & Vector Notation ---
+\newcommand{\vct}[1]{\mathbf{#1}}                % Vector: \vct{x}
+\newcommand{\mat}[1]{\mathbf{#1}}                % Matrix: \mat{A}
+\newcommand{\I}{\mathbf{I}}                      % Identity Matrix: \I
+\newcommand{\zero}{\mathbf{0}}                   % Zero Vector: \zero
+\newcommand{\T}{^{\mathsf{T}}}                   % Transpose: A\T
+\newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\inner}[2]{\langle #1,\, #2 \rangle}
+\newcommand{\tr}{\operatorname{tr}}              % Trace
+
+% --- Probability & Statistics ---
+\newcommand{\E}{\mathbb{E}}                      % Expectation: \E[X]
+\newcommand{\Var}{\operatorname{Var}}            % Variance
+\newcommand{\Cov}{\operatorname{Cov}}            % Covariance
+\newcommand{\Prob}{\mathbb{P}}                   % Probability
+
+% --- Computer Science & Algorithms ---
+\newcommand{\BigO}[1]{\mathcal{O}\left( #1 \right)}     % Big-O notation: \BigO{n \log n}
+\newcommand{\ThetaO}[1]{\Theta\left( #1 \right)}       % Theta notation
+\newcommand{\OmegaO}[1]{\Omega\left( #1 \right)}       % Omega notation
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}   % Floor
+\newcommand{\ceil}[1]{\left\lceil #1 \right\rceil}     % Ceiling
+
+% --- Text Shortcuts ---
+\newcommand{\eg}{\textit{e.g.,}\ }
+\newcommand{\ie}{\textit{i.e.,}\ }
+\newcommand{\etal}{\textit{et al.}}
+
+% --- Colored Text Shortcuts ---
+\newcommand{\blue}[1]{\textcolor{blue}{#1}}
+\newcommand{\cblue}[1]{\textcolor{customblue}{#1}}
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+\newcommand{\warn}[1]{\textcolor{red}{\textbf{WARNING: #1}}}
+
+% Redefine the contents name to include a color
+\renewcommand{\contentsname}{\textcolor{blue}{Contents}}

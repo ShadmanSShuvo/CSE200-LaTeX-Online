@@ -1,0 +1,55 @@
+\section{Crossing Number and Writhe}
+\subsection{ Crossing Number}
+For a diagram $D$, let $c(D)$ be its number of crossings.
+The crossing number of a knot $K$ is
+\begin{equation}
+    c(K) = \min_{D\sim K} c(D),
+\end{equation}
+where $D \sim K $means that $D$ represents the knot $K$.
+Thus,
+\[
+c(\text{unknot}) =0 ,\quad c(\text{trefoil}) = 3.
+\]
+
+
+
+\subsection{Signed Crossings}
+For an oriented diagram, each crossing is assigned a sign
+$\varepsilon_i \in \{+1,-1\}$. The writhe of the diagram is
+
+\begin{equation}
+    w(D) = \sum_{i=1}^{c(D)} \varepsilon = n_+(D) - n_-(D)
+    \label{eq:three}
+\end{equation}
+
+where $n_+(D)$ and $n_-(D)$ count positive and negative crossings. For example, if the signs are $+1, +1, -1, +1$ then
+\[
+w(D) = 1+1 -1 +1 = 2
+\]
+
+
+\begin{table*}[t]
+    \centering
+    \caption{ Selected knots and several elementary invariants}
+    \label{tab:inv}
+    \begin{tabular}{|c|c|c|c|c|c|}
+    \hline
+     \multirow{2}{*}{\bfseries Family} & \multirow{2}{*}{\bfseries Knot} & \multicolumn{3}{c|}{\bfseries Selected invariants} & \multirow{2}{*}{\bfseries Chiral?} \\
+     \cline{3-5}
+     & & $c(K)$ & $\det(K)$ & $\Delta_K(t)$ & \\
+     \hline
+    Basic & Unknot & 0 & 1 & 1 & No \\
+    \hline
+    \multirow{2}{*}{Torus knots} & Trefoil $3_1$ &3 & 3 & $t^{-1} -1  + t$ & Yes \\
+    \cline{2-6}
+    & Cinquefoil $5_1$ & 5 & 5 & $t^{-2} - t ^{-1} + 1 - t + t^2$ & Yes\\
+    \hline
+    Twist knot & Figure-eight  $4_1$ & 4 & 5& $-t^{-1} + 3 - t$ & No \\
+    \hline
+    \end{tabular}
+
+\end{table*}
+
+Writhe is useful in calculations, but it is not itself a
+knot invariant: it can change under a Reidemeister move
+of type I.

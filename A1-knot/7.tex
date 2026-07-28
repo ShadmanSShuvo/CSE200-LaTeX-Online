@@ -1,0 +1,27 @@
+\section{Applications Beyond Pure Mathematics}
+
+Knot theory appears whenever long flexible objects become entangled. Examples include:
+
+\begin{itemize}[label=$\bigoplus$]
+    \item circular DNA molecules and the action of topoisomerase enzymes;
+    \item polymer chains and molecular entanglement;
+    \item vortex lines in fluids and plasmas;
+    \item knot-based models in quantum computation
+\end{itemize}
+
+For two oriented components C1 and C2 in a link diagram, the linking number can be calculated from crossings between the two components:
+\begin{equation}
+    \text{lk}(C_1, C_2) = \frac{1}{2} \sum_{p\in C_1 \cap C_2} \varepsilon(P).
+\end{equation}
+
+This quantity measures how many times the two components wind around one another, with orientation taken
+into account.
+
+For a link $L= C_1 \cap C_2$, the pairwise linking numbers may be collected into the symmetric linking matrix
+
+\begin{equation}
+    \Lambda (L) = [\lambda_{ij}]_{i,j=1}^n , \quad \lambda_{ij} = \begin{cases}
+      \text{lk}(C_1, C_2), & i\neq j, \\
+      0, & i=j
+    \end{cases}
+\end{equation}

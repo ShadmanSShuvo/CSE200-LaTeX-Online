@@ -1,0 +1,58 @@
+\section{Knot Invariants}
+
+\subsection{Alexander Polynomial}
+A knot invariant assigns the same value to every diagram
+of the same knot. One important example is the Alexander polynomial $\Delta_K(t)$, defined up to multiplication by $\pm t^m$
+m. A common normalization satisfies
+
+\begin{equation}
+    \Delta_k(t) = \Delta_K(t^{-1}, \quad \Delta_k(1)=1
+\end{equation}
+
+For the trefoil knot,
+\begin{equation}
+    \Delta_{3_1} (t) = t^{-1} -1 + t
+\end{equation}
+The determinant of a knot is obtained from the polynomial by
+\begin{equation}
+    \det (K) = | \Delta_K(-1)|.
+\end{equation}
+Hence,
+\begin{equation*}
+    \det(3_1) = | -1-1-1| = 3
+\end{equation*}
+Table~\ref{tab:inv} compares these quantities for several small
+knots.
+
+
+\subsection{A Skein Relation}
+Many polynomial invariants are computed by comparing
+three diagrams that differ only inside a small region. For
+the Alexander polynomial, one form of the skein relation
+is
+\begin{equation}
+    \Delta_{L_+} (t) - \Delta_{L_-} (t) = \left( t^{1/2} - t^{-1/2}\right) \Delta_{L_0}(t)
+\end{equation}
+
+where $ L_+, L_-$, and $ L_0$ denote a positive crossing, a negative crossing, and a smoothing, respectively.
+
+
+
+
+\subsection{The Signature of a Knot}
+Another useful knot invariant is the signature $\sigma(K)$, obtained from a Seifert matrix $V$ . It is defined as the signature of the symmetric matrix
+\[
+V+V^T,
+\]
+
+that is, the number of positive eigenvalues minus the
+number of negative eigenvalues.
+
+For a knot and its mirror image, the signature satisfies
+\begin{equation}
+    \sigma(K) = \begin{cases}
+        0, & \text{if $K$ is the unknot,} \\
+        -2, & \text{is K is the right-handed trefoil}\\
+        2, & \text{if K is the left-handed trefoil}
+    \end{cases}
+\end{equation}

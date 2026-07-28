@@ -1,0 +1,67 @@
+\section{Listening and Adjusting}
+% \begin{equation}
+%     \dt{x} = x^2 \\
+%     \frac{d}{dt} = x \\
+%     dd=5
+% \end{equation}
+\subsection{The Kuramoto Rule}
+A widely used model for interacting phases is
+\begin{equation}
+    \dt{\theta_{i}} = \omega_{i} + \frac{K}{N} \sum_{j=1}^{N} \sin(\theta_{j} - \theta_{i}), \quad i = 1, \dots , N
+    \label{eqn:3}
+\end{equation}
+The three parts of eq.~\ref{eqn:3} have direct meanings:
+\begin{description}[style=nextline]
+    \item[Internal clock] $\omega_{i}$ 
+is the rate the firefly would follow alone.
+    \item[Coupling strength] $K\ge 0$ measures how strongly flashes influence one another
+    \item[Timing correction] $\sin(\theta_{j} - \theta_{i})$ tells firefly $i$ whether another phase is ahead or behind
+\end{description}
+
+% \begin{itemize}
+%     \item shuv
+%     \item anni
+%     \item sam
+% \end{itemize}
+
+
+
+% \begin{tasks}(2) %[label=\Roman*.](2)
+%     \task Apple
+%     \task Orange
+%     \task Mango
+%     \task Banana
+% \end{tasks}
+
+% \begin{tcolorbox}[title=Advantages,colback=blue!5,colframe=blue]
+% \begin{itemize}
+%     \item Fast
+%     \item Portable
+%     \item Open Source
+% \end{itemize}
+% \end{tcolorbox}
+
+Table~\ref{tab:one} explains the correction term. The table is simple, but it contains the central intuition of the
+model.
+
+\begin{table}[h]
+    \caption{How a neighboring firefly affects firefly $i$.}
+    \label{tab:one}
+    \centering
+    \resizebox{\linewidth}{!}{%
+    \begin{tabular}{cccl}
+        \toprule
+         \textbf{Relative pOsition} & \textbf{Phase Difference} & \textbf{Sine value} & \textbf{Effect on firefly $i$} \\
+         \midrule
+         Nrighbour ahead & $0<\theta_{j} - \theta_{i}<\pi$ & \cellcolor{lime}{\textbf{Positive}} & \cellcolor{lime}{Speeds up its phase} \\
+         Phases aligned & $\theta_{j} - \theta_{i}=0$ & \cellcolor{blue!10}{\textbf{zero}} & \cellcolor{blue!10}{Makes no correcition} \\
+         Neighbour behind & $-\pi<\theta_{j} - \theta_{i}<0$ & \cellcolor{red!10}{\textbf{Negative}} & \cellcolor{red!10}{Slows down its phase} \\
+         Opoosite phases & $\theta_{j} - \theta_{i}=0$ & \cellcolor{blue!10}{\textbf{Zero}} & \cellcolor{blue!10}{Produces no preferred direction of correction.} \\
+         \bottomrule 
+    \end{tabular}
+    }
+\end{table}
+
+The sine function is useful because it is smooth, periodic, and changes sign when the order of two phases
+is reversed.
+

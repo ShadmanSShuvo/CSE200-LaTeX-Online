@@ -1,0 +1,25 @@
+\section{A Small Diagram Algorithm}
+
+Algorithm 1 computes the writhe when the signed crossings of an oriented diagram are already known.
+
+\begin{algorithm}[H]
+    \caption{Compute the writhe of a knot diagram}
+    \label{alg:encoding}
+    \begin{algorithmic}[1]
+        \Require A list $S=(\varepsilon_1, \ldots , \varepsilon_m)$ with $\varepsilon_i \in \{-1, +1\}$
+        \Ensure The writhe $w(D)$
+        \State $w\gets 0$
+        \For{each $\varepsilon$ in $S$}
+            \State $w \gets w+\varepsilon$
+        \EndFor
+        \State \Return $w$
+    \end{algorithmic}
+\end{algorithm}
+
+The algorithm performs one addition per crossing, so
+its running time is
+\begin{equation}
+    T(m) = \Theta(m)
+\end{equation}
+where $m=c(D)$.
+

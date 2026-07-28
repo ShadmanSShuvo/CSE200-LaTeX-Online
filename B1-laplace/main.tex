@@ -1,0 +1,320 @@
+\documentclass[a4paper]{article}
+\input{preamble}
+% Packages
+% \usepackage{wrapfig}
+% \usepackage{authblk}
+% \usepackage{graphicx}
+% \usepackage[table,dvipsnames]{xcolor}
+% \definecolor{customblue}{RGB}{0, 76, 153}
+% \definecolor{softgreen}{RGB}{226, 245, 236}
+% \definecolor{softred}{RGB}{255, 232, 232}
+% \definecolor{softyellow}{RGB}{255, 247, 214}
+% \definecolor{codegreen}{rgb}{0,0.6,0}
+% \definecolor{codegray}{rgb}{0.5,0.5,0.5}
+% \definecolor{codepurple}{rgb}{0.58,0,0.82}
+% \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+% \usepackage{amsmath}
+% \usepackage[margin=1in]{geometry}
+% \usepackage{hyperref}
+% \usepackage[
+%     backend=biber,
+%     style=numeric
+% ]{biblatex}
+% \usepackage{multirow}
+% \usepackage{booktabs}
+% \usepackage{listings}
+% \lstdefinestyle{mystyle}{
+%     backgroundcolor=\color{backcolour},
+%     commentstyle=\color{codegreen},
+%     keywordstyle=\color{customblue}\bfseries,
+%     numberstyle=\tiny\color{codegray},
+%     stringstyle=\color{codepurple},
+%     basicstyle=\ttfamily\footnotesize,
+%     breakatwhitespace=false,
+%     breaklines=true,
+%     captionpos=b,
+%     keepspaces=true,
+%     numbers=left,
+%     numbersep=5pt,
+%     showspaces=false,
+%     showstringspaces=false,
+%     showtabs=false,
+%     tabsize=2,
+%     frame=single,
+%     columns=fullflexible,
+%     linewidth=\textwidth
+% }
+% \lstset{style=mystyle}
+% % Bibliography file
+% \addbibresource{laplace.bib}
+
+% % Hyperlink configuration
+% \hypersetup{
+%     colorlinks=true,
+%     linkcolor=blue,
+%     citecolor=blue,
+%     urlcolor=cyan
+% }
+
+% Title and author information
+\title{Laplace Analysis and Applications}
+
+\author[1]{Pierre-Simon Laplace}
+\author[2]{Oliver Heaviside}
+\author[3]{Gustav Robert Kirchhoff}
+
+\affil[1]{Académie des Sciences, Paris, France}
+\affil[2]{Royal Society, London, United Kingdom}
+\affil[3]{University of Heidelberg, Heidelberg, Germany}
+
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{From Functions to Transforms}
+
+\subsection{The Laplace Transform}
+
+Let \(f(t)\) be a function defined for \(t \geq 0\).
+Its Laplace transform is defined by
+
+\begin{equation}
+    \mathcal{L}\{f(t)\}
+    = F(s)
+    = \int_{0}^{\infty} e^{-st} f(t)\,\mathrm{d}t,
+    \qquad s > 0.
+\end{equation}
+
+The transform changes a function of time into a function of the new
+variable \(s\).\footnote{The variable \(s\) is commonly interpreted as a
+complex-frequency variable.}
+
+Symbolically,
+
+\begin{equation}
+    f(t)
+    \xrightarrow{\mathcal{L}}
+    F(s).
+\end{equation}
+
+The inverse Laplace transform reverses this process:
+
+\begin{equation}
+    f(t)
+    = \mathcal{L}^{-1}\{F(s)\}.
+\end{equation}
+
+The main purpose of the method is to replace differentiation and
+integration in the time domain with simpler algebraic operations in the
+transform domain~\cite{kreyszig2011}. A concise overview is available
+from the
+\href{https://mathworld.wolfram.com/LaplaceTransform.html}
+{Laplace Transform entry on MathWorld}.
+
+\subsection{A Simple Example}
+
+For the constant function \(f(t)=1\),
+
+\begin{align}
+    \mathcal{L}\{1\}
+        &= \int_{0}^{\infty} e^{-st}\,\mathrm{d}t \notag \\
+        &= \left[
+            -\frac{1}{s}e^{-st}
+           \right]_{0}^{\infty} \notag \\
+        &= \frac{1}{s}.
+\end{align}
+
+Similarly,
+
+\begin{equation}
+    \mathcal{L}\{t\}
+    = \frac{1}{s^2},
+    \qquad
+    \mathcal{L}\{t^2\}
+    = \frac{2}{s^3}.
+\end{equation}
+
+More generally,
+
+\begin{equation}
+    \mathcal{L}\{t^n\}
+    = \frac{n!}{s^{n+1}},
+    \qquad n=0,1,2,\ldots
+\end{equation}
+
+\section{Common Transform Equations}
+
+Table~\ref{tab:laplace} lists several frequently used
+Laplace-transform equations.
+
+% \begin{table}[ht]%[htbp]
+%     \centering
+%     \caption{Common Laplace-transform equations}
+%     \label{tab:common-transforms}
+
+%     \begin{tabular}{c|c|c|c}
+%         \hline
+%         Family
+%         & Time Function
+%         & Laplace Transform
+%         & Condition \\
+%         \hline
+
+%         Constant
+%         & \(1\)
+%         & \(\dfrac{1}{s}\)
+%         & \(s>0\) \\
+
+%         Power
+%         & \(t^n\)
+%         & \(\dfrac{n!}{s^{n+1}}\)
+%         & \(s>0\) \\
+
+%         Exponential
+%         & \(e^{at}\)
+%         & \(\dfrac{1}{s-a}\)
+%         & \(s>a\) \\
+
+%         Sine
+%         & \(\sin(at)\)
+%         & \(\dfrac{a}{s^2+a^2}\)
+%         & \(s>0\) \\
+
+%         Cosine
+%         & \(\cos(at)\)
+%         & \(\dfrac{s}{s^2+a^2}\)
+%         & \(s>0\) \\
+
+%         \hline
+%     \end{tabular}
+% \end{table}
+% \begin{table}[]
+%     \centering
+%     \caption{Selected Laplace-transform equations.}
+%     \label{tab:laplace}
+%     \begin{tabular}{|c|c|c|c|}
+%         \hline
+%          \multirow{2}{*}{\textbf{family}} & \multicolumn{2}{c}{Transform Equation} & \textbf{Condition}\\
+%          & \textbf{Time function} & \textbf{Laplace transform} & \\
+%          \multirow{3}{*}{Algebraic} & 1 & $\frac{1}{s}$ & $s>0$ \\
+%          & $t$ & $\frac{1}{s^2}$ & $s>0$ \\
+%          \cline{2-4}
+%          & $t^n$ & $\frac{n!}{s ^{n+1}}$ & $n=0,1,2,\dots$ \\
+%          \hline
+%          \multirow{2}{*}{Exponential} & $e ^{at}$ & $\frac{1}{s-a}$ & $s>a$\\
+%          \cline{2-4}
+%          & $e ^{-at}$ & $\frac{1}{s+a}$ & $s>-a$\\
+%          \hline
+%     \end{tabular}
+% \end{table}
+\begin{table}[ht]
+\centering
+\caption{Selected Laplace transform equations.}
+\label{tab:laplace}
+\begin{tabular}{lllc}
+\toprule
+\multirow{2}{*}{\textbf{Family}} &
+\multicolumn{2}{c}{\textbf{Transform Equation}} &
+\multirow{2}{*}{\textbf{Condition}} \\
+\cmidrule(lr){2-3}
+& \textbf{Time function} & \textbf{Laplace transform} & \\
+\midrule
+\multirow{3}{*}{Algebraic}
+& $1$ & $\dfrac{1}{s}$ & $s>0$ \\
+& $t$ & $\dfrac{1}{s^2}$ & $s>0$ \\
+& $t^n$ & $\dfrac{n!}{s^{n+1}}$ & $n=0,1,2,\dots$ \\
+\midrule
+\multirow{2}{*}{Exponential}
+& $e^{at}$ & $\dfrac{1}{s-a}$ & $s>a$ \\
+& $e^{-at}$ & $\dfrac{1}{s+a}$ & $s>-a$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+\section{Application to an RC Circuit}
+\subsection*{Circuit Model}
+\begin{wrapfigure}{r}{0.45\textwidth}
+    \centering
+    \includegraphics[width=0.42\textwidth]{rc_circuit.png}
+    \caption{A simple series RC circuit}
+    \label{fig:rc}
+\end{wrapfigure}
+Figure~\ref{fig:rc} shows a simple resistor--capacitor
+circuit connected to an input voltage source.
+The resistor limits the current, while the capaci-
+tor stores electrical energy.
+
+For a resistor $R$ and capacitor $C$, Kirchhoff’s
+voltage law gives
+\begin{equation}
+    RC \frac{dv_{C}(t)}{dt}  + v_{C}(t) = v_{in}(t)
+    \label{eq:five}
+\end{equation}
+where $v_C (t)$ is the voltage across the capacitor.
+Assuming $v_C (0) = 0$, taking the Laplace
+transform of Equation~\ref{eq:five} gives
+\begin{align}
+    RC[sV_{C}(s) - v_{C}(0)] + V_{C}(s) &= V_{in}(s) \notag \\
+    \implies RCsV_{C}(s) + V_{C}(s) &= V_{in}(s)\notag\\
+    \implies V_{C}(s)(RCs + 1) &= V_{in}(s)
+\end{align}
+The transfer function is therefore
+\begin{equation}
+    H(s) = \frac{V_{C}(s)}{V_{in}(s)} = \frac{1}{RCs+1}
+\end{equation}
+For a constant input $V_{0}$,
+\begin{equation}
+    V_{in}(s) = \frac{V_{0}}{s}.
+\end{equation}
+Thus,
+\begin{equation}
+    V_{C}(s) = \frac{V_{0}}{s(RCs+1)}
+\end{equation}
+Taking the inverse transform gives
+\begin{equation}
+    v_{C}(s) = V_{0}(1-e^{ -t/(RC) })
+    \label{eq:nine}
+\end{equation}
+    
+The quantity $\tau = RC$ is called the time constant of the circuit. A larger value of $\tau$ causes the capacitor to charge more slowly \cite{ogata2010}.
+
+\section{How Laplace Analysis Is Used}
+
+The Laplace transform is useful in many areas:
+\begin{description}
+    \item[Differential equations] $\bigoplus$ initial conditions are included automatically \\
+    $\bigoplus$ derivatives become algebraic expressions.
+    \item[Electrical circuits] $\bigoplus$ voltages and currents are studied in the s-domain; \\
+    $\bigoplus$ components lead to transfer functions.
+    \item[Control and signal systems] $\bigoplus$ stability can be studied through poles; \\
+    $\bigoplus$ common test inputs include:
+    \begin{itemize}[label=$\triangleright$]
+        \item he unit-step input;
+        \item the impulse input;
+        \item sinusoidal inputs.
+    \end{itemize}
+    
+\end{description}
+
+\blue{In the time domain, a system may be described by a differential equation,} whereas \red{in the Laplace
+domain, the same system is often described by a rational algebraic expression.}
+
+\section{A Short Python Implementation}
+Listing~\ref{lst:one} evaluates the capacitor voltage at a finite set of time instants using an external Python
+file.
+% \begin{lstlisting}[language=Python]
+%     \lstinputlisting{rc_response.py}
+%     \caption{Computing samples of the RC step response.}
+%     \label{lst:one}
+% \end{lstlisting}
+\lstinputlisting[
+    language=Python,
+    caption={Computing samples of the RC step response.},
+    label={lst:one}
+]{rc_response.py}
+Equation~\ref{eq:nine} and Listing 1 describe the same computation
+\printbibliography
+
+\end{document}

@@ -1,0 +1,67 @@
+\section{ Knots as Mathematical Objects
+}
+
+
+
+\subsection{From Rope to Curve}
+A mathematical knot is a closed curve in three-dimensional
+space that has no self-intersections. Formally, it may be
+represented by a continuous one-to-one map
+\begin{equation}
+    \mathscr{K} : S^1 \longrightarrow \mathbb{R}^3
+\end{equation}
+% \mathscr{H}
+% \mathcal{\varkappa} : S^1 \to \R^3
+%  \mathcal{K} : S^1 \to \R^3
+where $S^1$ denotes the unit circle. Two knots are considered equivalent if one can be continuously deformed into
+the other without cutting the curve or allowing it to pass
+through itself \cite{adams2004}.
+
+The simplest knot is the \underline{unknot}, which can be deformed into an ordinary circle. A nontrivial example is
+the trefoil knot shown in Figure \ref{fig:knot}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\columnwidth, angle=180]{template/trefoil_knot.png}
+    \caption{ A planar drawing of a trefoil knot}
+    \label{fig:knot}
+\end{figure}
+
+
+\subsection{Diagrams and Crossings
+}
+A knot diagram is a projection of a spatial knot onto a
+plane. At every crossing, a small break indicates which
+strand passes underneath. The main diagrammatic objects are:
+% \begin{table}[h]
+%     \centering
+%     \resizebox{\columnwidth}{!}{%
+%     \begin{tabular}{ll}
+%         \texttt{Arc} & A continuous segment between two under crossings. \\
+%          \texttt{Crossing} & A point where one projected strand passes
+% over another. \\
+%          \texttt{Orientation} &  A selected direction of travel around the
+% knot.  \\
+%     \end{tabular}
+%     }
+%     % \caption{Caption}
+%     % \label{tab:placeholder}
+% \end{table}
+
+\begin{labeling}{Orientation}
+\item[\texttt{Arc}]
+A continuous segment between two under-crossings.
+
+\item[\texttt{Crossing}]
+A point where one projected strand passes over another.
+
+\item[\texttt{Orientation}]
+A selected direction of travel around the knot.
+\end{labeling}
+
+\cblue{A diagram may contain many crossings even when
+the underlying knot is simple}, while \red{ an invariant must
+remain unchanged under every legal deformation of the
+knot.}
+
+

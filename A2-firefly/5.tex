@@ -1,0 +1,23 @@
+\section{A Short Simulation}
+Euler’s method can approximate the phase evolution. The following compact algorithm repeats the
+interaction and update steps.
+
+\begin{algorithm}[H]
+    \caption{Simulate the Kuramoto model}
+    \label{alg:kuramoto}
+    \begin{algorithmic}[1]
+        \Require Phases $\theta_{i}$, frequencies $\omega_{i}$, coupling $K$, step size $h$, and number of steps $M$
+        \For{$m \gets 1$ to $M$}
+            \For{each firefly $i$}
+                \State \(q_{i} \gets \sum_{j=1}^{N}\sin(\theta_{j}-\theta_{i})\), \quad \(v_{i} \gets \omega_{i} + \frac{K}{N}q_{i}\)
+            \EndFor
+            \State Update all phases simultaneously: \(\theta_{i} \gets (\theta_{i} + hv_{i}) \) mod $2\pi$
+        \EndFor
+        \State \Return $\theta_{1},\ldots,\theta_{N}$
+    \end{algorithmic}
+\end{algorithm}
+
+Each firefly compares its phase with all $N$ phases. Therefore, for $M$ time steps,
+\begin{equation}
+    T(M, N) = \Theta(MN^2)
+\end{equation}

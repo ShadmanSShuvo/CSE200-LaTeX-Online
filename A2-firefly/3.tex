@@ -1,0 +1,27 @@
+\section{Two Fireflies: An Exact Answer}
+The full model may contain hundreds of phases, but the case N = 2 can be solved directly. Define
+\[
+\Delta = \theta_{2} - \theta_{1}, \quad \Delta \omega = \omega_{2} - \omega_{1}.
+\]
+For two fireflies, eq.~\ref{eqn:3} becomes
+\begin{align}
+    \frac{d\omega_{1}}{dt} &= \omega_{1} + \frac{K}{2} \sin (\theta_{2}-\theta_{1}) \\
+    \frac{d\omega_{2}}{dt} &= \omega_{2} + \frac{K}{2} \sin (\theta_{1}-\theta_{2})
+\end{align}
+
+Subtracting the first equation from the second gives
+\begin{align}
+    \frac{d\Delta}{dt} &= \Delta\omega + \frac{K}{2} \sin (-\Delta) - \frac{K}{2} \sin (\Delta)\\
+     &= \Delta\omega - K \sin \Delta \label{eqn:7}
+\end{align}
+The two fireflies are phase locked when $\Delta$ becomes constant. Setting the left side of eq.~\ref{eqn:7} to zero 
+\begin{equation}
+    \sin \Delta^* = \frac{\Delta\omega}{K}
+\end{equation}
+
+A real solution exists only when
+\begin{equation}
+    |\Delta\omega| \le K.
+\end{equation}
+
+Thus, coupling can overcome a small mismatch between internal clocks, but not an arbitrarily large one.
